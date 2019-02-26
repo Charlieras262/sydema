@@ -1,0 +1,47 @@
+/*//////////////////////////////////////////////////////////////////
+[ FONT ]*/
+
+@font-face {
+  font-family: Poppins-Regular;
+  src: url('/src/public/fonts/poppins/Poppins-Regular.ttf'); 
+}
+
+@font-face {
+  font-family: Poppins-Bold;
+  src: url('/src/public/fonts/poppins/Poppins-Bold.ttf'); 
+}
+
+@font-face {
+  font-family: Poppins-Medium;
+  src: url('/src/public/fonts/poppins/Poppins-Medium.ttf'); 
+}
+
+@font-face {
+  font-family: Montserrat-Bold;
+  src: url('/src/public/fonts/montserrat/Montserrat-Bold.ttf'); 
+}
+
+.content {
+    font-family: Poppins-Bold;
+    font-size: 20px;
+    text-align: left, top;
+    color: #414648;
+    display: block;
+    padding-top: 0px;
+  }
+
+  .sub-content {
+    font-family: Poppins-Medium;
+    font-size: 13px;
+    text-align: left, top;
+  
+    padding-top: 5px;
+  }
+
+  .login100-pic {
+    width: 60px;
+  }
+  
+  .login100-pic img {
+    max-width: 90%;
+  }

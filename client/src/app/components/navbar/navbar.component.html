@@ -1,0 +1,58 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light navbar-fixed-top" role="navigation">
+    <div class="login100-pic js-tilt" data-tilt [routerLink]="['']" style="cursor: pointer;">
+        <img src="src/public/images/app-logo.png" alt="IMG">
+    </div>
+    <a class="navbar-brand content" [routerLink]="['']">Sydema</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">
+                <a class="nav-link sub-content" [routerLink]="['']">Home</a>
+            </li>
+            <li *ngIf="authService.loggedAsAdmin()" class="nav-item" [routerLinkActive]="['active']"
+                [routerLinkActiveOptions]="{exact: true}">
+                <a class="nav-link sub-content" [routerLink]="['/dashboard']">Dashboard</a>
+            </li>
+            <li *ngIf="authService.loggedAsStudent()" class="nav-item" [routerLinkActive]="['active']"
+                [routerLinkActiveOptions]="{exact: true}">
+                <a class="nav-link sub-content" [routerLink]="['/coursesasigned']">Courses Asigned</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav my-2 my-lg-0">
+            <li *ngIf="!authService.loggedIn()" class="nav-item" [routerLinkActive]="['active']"
+                [routerLinkActiveOptions]="{exact: true}">
+                <a class="nav-link sub-content" [routerLink]="['/login']">Login</a>
+            </li>
+            <li *ngIf="!authService.loggedIn()" class="nav-item" [routerLinkActive]="['active']"
+                [routerLinkActiveOptions]="{exact: true}">
+                <a class="nav-link sub-content" [routerLink]="['/register']">Register</a>
+            </li>
+            <li class="nav-item">
+            </li>
+            <li *ngIf="authService.loggedIn()" class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle sub-content" data-toggle="dropdown" href="#" role="button"
+                    aria-haspopup="false" aria-expanded="true" id="username"><i class="fa fa-user"></i> {{username}}</a>
+                <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="username">
+                    <li class="dropdown-item sub-content" [routerLink]="['/profile']" [routerLinkActive]="['active']" style="cursor: pointer"><a style="cursor: pointer"><i class="fa fa-fw fa-user"></i> Profile</a></li>
+                    <li class="dropdown-item sub-content" [routerLink]="[id+'/chat']" [routerLinkActive]="['active']" style="cursor: pointer"><a style="cursor: pointer"><i class="fa fa-fw fa-envelope"></i> Inbox</a></li>
+                    <li class="dropdown-item sub-content" style="cursor: pointer"><a style="cursor: pointer"><i class="fa fa-fw fa-gear"></i> Settings</a></li>
+                    <div class="dropdown-divider"></div>
+                    <li class="dropdown-item sub-content" (click)="onLogoutClick()" [routerLink]="['/login']" style="cursor: pointer"><a style="cursor: pointer"><i class="fa fa-fw fa-power-off"></i> Log out</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="dropdown-menu " x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 40px, 0px); top: 0px; left: 0px; will-change: transform;">
+        <a class="dropdown-item sub-content" [routerLink]="['/profile']"><i class="fa fa-fw fa-user"></i>
+            Profile</a>
+        <a class="dropdown-item sub-content" [routerLink]="[id+'/chat']"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
+        <a class="dropdown-item sub-content" href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item sub-content" (click)="onLogoutClick()" [routerLink]="['/login']"><i class="fa fa-fw fa-power-off"></i>
+            logout</a>
+    </div>

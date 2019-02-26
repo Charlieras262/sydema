@@ -1,0 +1,42 @@
+<div class="wrapper">
+    <!-- Sidebar Holder -->
+    <nav id="sidebar">
+      <div class="sidebar-header">
+        <h3 class="content"><i class="fa fa-book"></i> {{course.name}}</h3>
+      </div>
+
+      <ul class="list-unstyled components">
+        <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">
+          <a [routerLink]="['/coursesasigned', course._id, 'information']">Course Information</a>
+        </li>
+        <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">
+          <a [routerLink]="['/coursesasigned', course._id, 'activities']">Activities</a>
+        </li>
+        <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">
+          <a [routerLink]="['/coursesasigned', course._id, 'homework']">Homework</a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Page Content Holder -->
+    <div class="container">
+      <div id="content">
+          <div class="container-fluid">
+              <button type="button" id="sidebarCollapse" class="navbar-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+              </button>
+            </div>
+      <div class="content-p">
+        <app-activities class="content-c" *ngIf="isThisContent('activities')"></app-activities>
+      </div>
+      <div class="content-p">
+          <app-information class="content-c" *ngIf="isThisContent('information')"></app-information>
+      </div>
+      <div class="content-p">
+        <app-homework class="content-c" *ngIf="isThisContent('homework')"></app-homework>
+      </div>
+    </div>
+    </div>
+  </div>

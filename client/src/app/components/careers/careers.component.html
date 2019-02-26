@@ -1,0 +1,66 @@
+<div class="container-login100">
+  <div class="wrap-login100">
+    <p class="title">Career <span class="text-primary">Management</span></p>
+    <form class="login100-form validate-form" #careerForm="ngForm" (ngSubmit)=addCareer(careerForm)>
+      <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="careerService.selectedCareer._id">
+      <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+        <input class="input100" id="code" name="code" type="text" #code="ngModel" [(ngModel)]="careerService.selectedCareer.code"
+          placeholder="Code">
+        <span class="focus-input100"></span>
+        <span class="symbol-input100">
+          <i class="fa fa-id-card" aria-hidden="true"></i>
+        </span>
+      </div>
+      <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+        <input class="input100" id="name" name="name" type="text" #name="ngModel" [(ngModel)]="careerService.selectedCareer.name"
+          placeholder="Name">
+        <span class="focus-input100"></span>
+        <span class="symbol-input100">
+          <i class="fa fa-id-card" aria-hidden="true"></i>
+        </span>
+      </div>
+      <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+        <input class="input100" id="just" name="just" type="text" #just="ngModel" [(ngModel)]="careerService.selectedCareer.just"
+          placeholder="Justificacion">
+        <span class="focus-input100"></span>
+        <span class="symbol-input100">
+          <i class="fa fa-id-card" aria-hidden="true"></i>
+        </span>
+      </div>
+      <div class="container-login100-form-btn">
+        <button (click)="cleanForm(careerForm)" type="reset" class="login100-form-btn">
+          <i class="fa fa-times prefix" aria-hidden="true"></i>&nbsp;
+          Clear
+        </button>
+        <button class="login100-form-btn" type="submit">
+          <i class="fa fa-floppy-o prefix"></i>&nbsp;
+          Save
+        </button>
+      </div>
+    </form>
+    <div class="login100-pic js-tilt" data-tilt>
+      <img src="src/public/images/career.png" alt="IMG">
+    </div>
+    <table class="table table-hover table-responsive">
+      <thead>
+        <th scope="col" class="tb-title table-success">Code</th>
+        <th scope="col" class="tb-title table-success">Name</th>
+        <th scope="col" class="tb-title table-success">Justificacion</th>
+        <th scope="col" class="tb-title table-success">Operations</th>
+      </thead>
+      <tbody>
+        <tr class="table-success tb-sub-title" *ngFor="let career of careerService.careers">
+          <td>{{career.code}}</td>
+          <td>{{career.name}}</td>
+          <td>{{career.just}}</td>
+          <td ng-if="showTooltip">
+            <button type="button" class="btn btn-link" (click)="editStudent(career)" style="padding-right: 20px; padding-left: 15px;"><i class="fa fa-pencil-square-o fa-2x"
+                aria-hidden="true"></i></button>
+            <button type="button" class="btn btn-link" (click)="deleteStudent(career._id)"><i class="fa fa-trash-o fa-2x"
+                aria-hidden="true"></i></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

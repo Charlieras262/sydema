@@ -1,0 +1,38 @@
+<div class="container-login100">
+  <div class="wrap-login100">
+      <p class="title">Students <span class="text-primary">Asigned</span></p>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <th scope="col" class="tb-title table-success">Carné</th>
+            <th scope="col" class="tb-title table-success">First Name</th>
+            <th scope="col" class="tb-title table-success">Last Name</th>
+            <th scope="col" class="tb-title table-success">Date of Born</th>
+            <th scope="col" class="tb-title table-success">CUI</th>
+            <th scope="col" class="tb-title table-success">Telephone</th>
+            <th scope="col" class="tb-title table-success">Address</th>
+            <th scope="col" class="tb-title table-success">Courses Asigned</th>
+            <th scope="col" class="tb-title table-success">Operations</th>
+          </thead>
+          <tbody>
+            <tr class="table-success tb-sub-title" *ngFor="let student of students">
+              <td>{{student.carne}}</td>
+              <td>{{student.name}}</td>
+              <td>{{student.lastName}}</td>
+              <td>{{student.fnac}}</td>
+              <td>{{student.cui}}</td>
+              <td>{{student.tel}}</td>
+              <td>{{student.address}}</td>
+              <td>{{student.courses}}</td>
+              <td ng-if="showTooltip">
+                <button type="button" class="btn btn-link" (click)="createConversation(student.carne)" [routerLink]="['/'+id+'/chat']" style="padding-right: 10px; padding-left: 10px;"><i
+                    class="fa fa-envelope fa-2x" aria-hidden="true"></i></button>
+                <button type="button" class="btn btn-link" (click)="reminder()"><i class="fa fa-thumb-tack  fa-2x"
+                    aria-hidden="true"></i></button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  </div>
+</div>

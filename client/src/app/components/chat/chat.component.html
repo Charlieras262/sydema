@@ -1,0 +1,110 @@
+<div class="container-100">
+  <div class="cont" *ngIf="isThereConversations()">
+    <div class="messaging">
+      <div class="inbox_msg">
+        <div class="inbox_people" [ngStyle]="{'width.%': size}">
+          <div class="headind_srch">
+            <div class="recent_heading">
+              <h4 class="title-txt">Messages</h4>
+            </div>
+            <div class="row">
+              <div class="wrap-input101">
+                <div class="validate-input" data-validate="Valid Username is required">
+                  <input class="input100" id="search_conv" name="search_conv" type="text" [(ngModel)]="search_convv"
+                    placeholder="Search">
+                  <span class="focus-input100"></span>
+                  <span class="symbol-input100">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="inbox_chat">
+            <div class="chat_list" *ngFor="let conversation of chatService.conversations" (click)="selectConversation(conversation)"
+              style="cursor: pointer">
+              <div class="chat_people">
+                <div class="chat_img"> <img src="src/public/images/user.jpg" alt="IMG">
+                </div>
+                <div class="chat_ib">
+                  <h5 class="content-txt" *ngIf="defineUsername(conversation)">{{conversation.user_to}}<span class="chat_date sub-content-txt">{{conversation.lasDate}}</span></h5>
+                  <h5 class="content-txt" *ngIf="!defineUsername(conversation)">{{conversation.user_from}}<span class="chat_date sub-content-txt">{{conversation.lasDate}}</span></h5>
+                  <p class="sub-content-txt">{{conversation.last_msg}}</p>
+                  <p *ngIf="writing&&!selected" class="content-txt" style="color: #57b846">Typing...</p>
+                  <p *ngIf="recived||conversation.q_msg>0" class="content-txt" style="color: #57b846"><strong>{{qMsg}}
+                      New Message!</strong></p>
+                </div>
+              </div>
+            </div>
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="btn-group-sm" id="mini-fab">
+                    <button (click)="addConversation()" class="btn btn-fab" data-toggle="tooltip" data-placement="right" data-original-title="Add" title="Add Conversation" id="autre">
+                      <i class="fa fa-plus" style="color: white;"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mesgs sub-content-txt" *ngIf="selected">
+          <div id="chat" class="msg_history">
+          </div>
+          <form class="login100-form validate-form" (ngSubmit)=sendMessage()>
+            <p *ngIf="writing&&selected" class="content-txt" style="color: #57b846">{{userTarget}} is Typing...</p>
+            <div class="wrap-input100">
+              <div class="validate-input input-group" data-validate="Type your message">
+                <input class="input101" (input)="typing()" id="msg" name="msg" type="textarea" placeholder="Type your Message">
+                <span class="focus-input100"></span>
+                <span class="symbol-input100">
+                  <i class="fa fa-keyboard-o" aria-hidden="true"></i>
+                </span>
+                <button type="submit" class="login100-form-btn">
+                  <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="wrap-100" [hidden]="!isThereConversations()||!creatingConv">
+    <h2 class="title">Create <span class="text-primary">Conversation</span></h2>
+    <form class="login100-form validate-form">
+      <div class="wrap-input100">
+        <div class="validate-input" data-validate="Valid Username is required">
+          <input class="input100" id="search" name="search" type="text" [(ngModel)]="search" (input)="searchUser(search)"
+            placeholder="Search">
+          <span class="focus-input100"></span>
+          <span class="symbol-input100">
+            <i class="fa fa-search" aria-hidden="true"></i>
+          </span>
+        </div>
+      </div>
+    </form>
+    <div class="container">
+      <p *ngIf="!found" class="tb-title text-danger">User not Found</p>
+      <p *ngIf="loading" class="tb-title">Searching...</p>
+      <div class="progress mb-4" *ngIf="loading">
+        <div class="progress-bar progress-bar-striped progress-bar-animated progress" role="progressbar" style="width: 100%"></div>
+      </div>
+    </div>
+    <div class="login100-form" *ngIf="creatingConv">
+      <div class="row">
+        <div class="container" *ngFor="let user of users">
+          <div class="card">
+            <img class="card-img-top login100-pic" src="src/public/images/user.jpg" alt="Card image">
+            <div class="card-body">
+              <h4 class="card-title">{{user.username}}</h4>
+              <p class="card-text">{{user.name}}</p>
+              <button (click)="createConversation(user)" class="btn btn-primary">Send message</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

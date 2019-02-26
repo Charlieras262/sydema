@@ -1,0 +1,70 @@
+<div class="container-login100">
+  <div class="wrap-login100">
+    <p class="title">Register <span class="text-primary">User</span></p>
+    <div class="login100-pic js-tilt" data-tilt>
+      <img src="src/public/images/img-01.png" alt="IMG">
+    </div>
+    <form (submit)="onRegisterSubmit()" class="validate-form">
+      <div class="wrap-input100 validate-input" data-validate="This ID does not exist">
+        <input id="id" class="input100" type="text" [(ngModel)]="id" name="id" placeholder="ID">
+        <span class="focus-input100"></span>
+        <span class="symbol-input100">
+          <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+        </span>
+      </div>
+      <div class="wrap-input100 validate-input" data-validate="This field is required">
+        <input class="input100" type="text" [(ngModel)]="name" name="name" placeholder="Name">
+        <span class="focus-input100"></span>
+        <span class="symbol-input100">
+          <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+        </span>
+      </div>
+      <div class="wrap-input100 validate-input" data-validate="This field is required">
+        <input class="input100" type="text" [(ngModel)]="username" name="username" placeholder="Username">
+        <span class="focus-input100"></span>
+        <span class="symbol-input100">
+          <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+        </span>
+      </div>
+
+      <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+        <input class="input100" type="text" [(ngModel)]="email" name="email" placeholder="Email">
+        <span class="focus-input100"></span>
+        <span class="symbol-input100">
+          <i class="fa fa-envelope" aria-hidden="true"></i>
+        </span>
+      </div>
+
+      <div class="wrap-input100 validate-input" data-validate="This field is required">
+        <input class="input100" type="password" [(ngModel)]="password" name="password" placeholder="Password">
+        <span class="focus-input100"></span>
+        <span class="symbol-input100">
+          <i class="fa fa-key" aria-hidden="true"></i>
+        </span>
+      </div>
+
+      <div class="wrap-input100 validate-input" data-validate="The passwords are not the same">
+        <input class="input100" type="password" [(ngModel)]="cpassword" name="cpassword" placeholder="Confirm Password">
+        <span class="focus-input100"></span>
+        <span class="symbol-input100">
+          <i class="fa fa-key" aria-hidden="true"></i>
+        </span>
+      </div>
+      <div class="wrap-radio100">
+        <div class="custom-control custom-radio">
+          <input type="radio" id="type1" name="type" class="custom-control-input" checked="" value="T">
+          <label  style="margin-right: 40px; margin-left: 35px;" class="custom-control-label" for="type1">Teacher</label>
+        </div>
+        <div class="custom-control custom-radio">
+          <input type="radio" id="type2" name="type" class="custom-control-input" value="S">
+          <label style="margin-right: 40px" class="custom-control-label " for="type2">Student</label>
+        </div>
+      </div>
+      <div class="container-login100-form-btn">
+        <button class="login100-form-btn" type="submit">
+          Register
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,114 @@
+<div class="container-login100">
+  <div class="wrap-login100">
+    <p class="title">Students <span class="text-primary">Management</span></p>
+    <form class="login100-form validate-form" #studentForm="ngForm" (ngSubmit)=addStudent(studentForm)>
+      <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="studentService.selectedStudent._id">
+      <div class="wrap-input100 validate-input" data-validate="Valid ID is required">
+        <input class="input100" id="carne" name="carne" type="text" #carne="ngModel" [(ngModel)]="studentService.selectedStudent.carne"
+          placeholder="Carné">
+        <span class="focus-input100"></span>
+        <span class="symbol-input100">
+          <i class="fa fa-id-card" aria-hidden="true"></i>
+        </span>
+      </div>
+      <div class="wrap-input101">
+        <div class="validate-input" data-validate="Valid name is required">
+          <input class="input100" id="name" name="name" type="text" #name="ngModel" [(ngModel)]="studentService.selectedStudent.name"
+            placeholder="Name">
+          <span class="focus-input100"></span>
+          <span class="symbol-input100">
+            <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+          </span>
+        </div>
+        <div class="validate-input" data-validate="Valid Last Name is required">
+          <input class="input100" id="lastName" name="lastName" type="text" #lastName="ngModel" [(ngModel)]="studentService.selectedStudent.lastName"
+            placeholder="Last Name">
+          <span class="focus-input100"></span>
+          <span class="symbol-input100">
+            <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+          </span>
+        </div>
+      </div>
+      <div class="wrap-input100 validate-input" data-validate="Valid Born Date is required">
+        <input class="input100" id="fnac" name="fnac" type="text" #fnac="ngModel" [(ngModel)]="studentService.selectedStudent.fnac"
+          placeholder="Born Date">
+        <span class="focus-input100"></span>
+        <span class="symbol-input100">
+          <i class="fa fa-calendar" aria-hidden="true"></i>
+        </span>
+      </div>
+      <div class="wrap-input100 validate-input" data-validate="Valid CUI is required">
+        <input class="input100" id="cui" name="cui" type="text" #cui="ngModel" [(ngModel)]="studentService.selectedStudent.cui"
+          placeholder="CUI">
+        <span class="focus-input100"></span>
+        <span class="symbol-input100">
+          <i class="fa fa-id-card-o" aria-hidden="true"></i>
+        </span>
+      </div>
+      <div class="wrap-input100 validate-input" data-validate="Valid Telephone is required">
+        <input class="input100" id="tel" name="tel" type="text" #tel="ngModel" [(ngModel)]="studentService.selectedStudent.tel"
+          placeholder="Telephone">
+        <span class="focus-input100"></span>
+        <span class="symbol-input100">
+          <i class="fa fa-phone prefix" aria-hidden="true"></i>
+        </span>
+      </div>
+      <div class="wrap-input100 validate-input" data-validate="Valid Address is required">
+        <input class="input100" id="address" name="address" type="text" #address="ngModel" [(ngModel)]="studentService.selectedStudent.address"
+          placeholder="Address">
+        <span class="focus-input100"></span>
+        <span class="symbol-input100">
+          <i class="fa fa-building-o" aria-hidden="true"></i>
+        </span>
+      </div>
+      <div class="container-login100-form-btn">
+        <button (click)="cleanForm(studentForm)" type="reset" class="login100-form-btn">
+          <i class="fa fa-times prefix" aria-hidden="true"></i>&nbsp;
+          Clear
+        </button>
+        <button class="login100-form-btn" type="submit">
+          <i class="fa fa-floppy-o prefix"></i>&nbsp;
+          Save
+        </button>
+      </div>
+    </form>
+    <div class="login100-pic js-tilt" data-tilt>
+      <img src="src/public/images/stud.png" alt="IMG">
+    </div>
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+          <th scope="col" class="tb-title table-success">Carné</th>
+          <th scope="col" class="tb-title table-success">First Name</th>
+          <th scope="col" class="tb-title table-success">Last Name</th>
+          <th scope="col" class="tb-title table-success">Date of Born</th>
+          <th scope="col" class="tb-title table-success">CUI</th>
+          <th scope="col" class="tb-title table-success">Telephone</th>
+          <th scope="col" class="tb-title table-success">Address</th>
+          <th scope="col" class="tb-title table-success">Courses Asigned</th>
+          <th scope="col" class="tb-title table-success">Operations</th>
+        </thead>
+        <tbody>
+          <tr class="table-success tb-sub-title" *ngFor="let student of studentService.students">
+            <td>{{student.carne}}</td>
+            <td>{{student.name}}</td>
+            <td>{{student.lastName}}</td>
+            <td>{{student.fnac}}</td>
+            <td>{{student.cui}}</td>
+            <td>{{student.tel}}</td>
+            <td>{{student.address}}</td>
+            <td *ngIf="coursesNames(student)">{{coursesNames(student)}}</td>
+            <td *ngIf="!coursesNames(student)">No courses assigned</td>
+            <td ng-if="showTooltip">
+              <a class="btn btn-link" (click)="editStudent(student)" style="padding-right: 10px; padding-left: 10px;"
+                data-toggle="tooltip" data-placement="right" data-original-title="Edit" title="Edit Student"><i class="fa fa-pencil-square-o fa-2x"
+                  aria-hidden="true"></i></a>
+              <a class="btn btn-link" (click)="deleteStudent(student._id)" data-toggle="tooltip" data-placement="right"
+                data-original-title="Delete" title="Delete Student"><i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

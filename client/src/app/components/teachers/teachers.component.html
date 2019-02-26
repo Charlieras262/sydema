@@ -1,0 +1,128 @@
+<div class="container-login100">
+  <div class="wrap-login100">
+    <p class="title">Teachers <span class="text-primary">Management</span></p>
+    <form class="login100-form validate-form" #teacherForm="ngForm" (ngSubmit)=addTeacher(teacherForm)>
+      <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="teacherService.selectedTeacher._id">
+      <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+        <input class="input100" id="code" name="code" type="text" #code="ngModel" [(ngModel)]="teacherService.selectedTeacher.code"
+          placeholder="Code">
+        <span class="focus-input100"></span>
+        <span class="symbol-input100">
+          <i class="fa fa-id-card" aria-hidden="true"></i>
+        </span>
+      </div>
+      <div class="wrap-input101">
+        <div class="validate-input" data-validate="Valid email is required: ex@abc.xyz">
+          <input class="input100" id="name" name="name" type="text" #name="ngModel" [(ngModel)]="teacherService.selectedTeacher.name"
+            placeholder="Name">
+          <span class="focus-input100"></span>
+          <span class="symbol-input100">
+            <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+          </span>
+        </div>
+        <div class="validate-input" data-validate="Valid email is required: ex@abc.xyz">
+          <input class="input100" id="lastName" name="lastName" type="text" #lastName="ngModel" [(ngModel)]="teacherService.selectedTeacher.lastName"
+            placeholder="Last Name">
+          <span class="focus-input100"></span>
+          <span class="symbol-input100">
+            <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+          </span>
+        </div>
+      </div>
+      <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+        <input class="input100" id="fnac" name="fnac" type="text" #fnac="ngModel" [(ngModel)]="teacherService.selectedTeacher.fnac"
+          placeholder="Born Date">
+        <span class="focus-input100"></span>
+        <span class="symbol-input100">
+          <i class="fa fa-calendar" aria-hidden="true"></i>
+        </span>
+      </div>
+      <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+        <input class="input100" id="cui" name="cui" type="text" #cui="ngModel" [(ngModel)]="teacherService.selectedTeacher.cui"
+          placeholder="CUI">
+        <span class="focus-input100"></span>
+        <span class="symbol-input100">
+          <i class="fa fa-id-card-o" aria-hidden="true"></i>
+        </span>
+      </div>
+      <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+        <input class="input100" id="esp" name="esp" type="text" #esp="ngModel" [(ngModel)]="teacherService.selectedTeacher.esp"
+          placeholder="Speciality">
+        <span class="focus-input100"></span>
+        <span class="symbol-input100">
+          <i class="fa fa-graduation-cap prefix" aria-hidden="true"></i>
+        </span>
+      </div>
+      <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+        <input class="input100" id="master" name="master" type="text" #master="ngModel" [(ngModel)]="teacherService.selectedTeacher.master"
+          placeholder="Master">
+        <span class="focus-input100"></span>
+        <span class="symbol-input100">
+          <i class="fa fa-building-o" aria-hidden="true"></i>
+        </span>
+      </div>
+      <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+        <input class="input100" id="colNum" name="colNum" type="text" #colNum="ngModel" [(ngModel)]="teacherService.selectedTeacher.colNum"
+          placeholder="Collegiate Number">
+        <span class="focus-input100"></span>
+        <span class="symbol-input100">
+          <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+        </span>
+      </div>
+      <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+        <input class="input100" id="col" name="col" type="text" #col="ngModel" [(ngModel)]="teacherService.selectedTeacher.col"
+          placeholder="School Number">
+        <span class="focus-input100"></span>
+        <span class="symbol-input100">
+          <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+        </span>
+      </div>
+      <div class="container-login100-form-btn">
+        <button (click)="cleanForm(teacherForm)" type="reset" class="login100-form-btn">
+          <i class="fa fa-times prefix" aria-hidden="true"></i>&nbsp;
+          Clear
+        </button>
+        <button class="login100-form-btn" type="submit">
+          <i class="fa fa-floppy-o prefix"></i>&nbsp;
+          Save
+        </button>
+      </div>
+    </form>
+    <div class="login100-pic js-tilt" data-tilt>
+      <img src="src/public/images/prof.png" alt="IMG">
+    </div>
+    <table class="table table-hover">
+      <thead>
+        <th scope="col" class="tb-title table-success">Code</th>
+        <th scope="col" class="tb-title table-success">First Name</th>
+        <th scope="col" class="tb-title table-success">Last Name</th>
+        <th scope="col" class="tb-title table-success">Date of Born</th>
+        <th scope="col" class="tb-title table-success">CUI</th>
+        <th scope="col" class="tb-title table-success">Speciality</th>
+        <th scope="col" class="tb-title table-success">Master</th>
+        <th scope="col" class="tb-title table-success">Collegiate Number</th>
+        <th scope="col" class="tb-title table-success">School Number</th>
+        <th scope="col" class="tb-title table-success">Operations</th>
+      </thead>
+      <tbody>
+        <tr class="table-success tb-sub-title" *ngFor="let teacher of teacherService.teachers">
+          <td>{{teacher.code}}</td>
+          <td>{{teacher.name}}</td>
+          <td>{{teacher.lastName}}</td>
+          <td>{{teacher.fnac}}</td>
+          <td>{{teacher.cui}}</td>
+          <td>{{teacher.esp}}</td>
+          <td>{{teacher.master}}</td>
+          <td>{{teacher.colNum}}</td>
+          <td>{{teacher.col}}</td>
+          <td ng-if="showTooltip">
+            <button type="button" class="btn btn-link" (click)="editStudent(teacher)" style="padding-right: 10px; padding-left: 10px;"><i class="fa fa-pencil-square-o fa-2x"
+                aria-hidden="true"></i></button>
+            <button type="button" class="btn btn-link" (click)="deleteStudent(teacher._id)"><i class="fa fa-trash-o fa-2x"
+                aria-hidden="true"></i></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

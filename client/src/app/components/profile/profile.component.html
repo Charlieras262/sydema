@@ -1,0 +1,10 @@
+<div class="container-100">
+    <div *ngIf="user" class="wrap-100">
+        <h2 class="title"><i class="fa fa-user-circle" aria-hidden="true"></i> {{user.name}}</h2>
+        <ul class="list-group">
+          <li class="list-group-item wrap-101"><span class="content"><i class="fa fa-user" aria-hidden="true"></i> Username:</span> <span class="sub-title">{{user.username}}</span></li>
+          <li class="list-group-item wrap-101"><span class="content"><i class="fa fa-envelope" aria-hidden="true"></i> Email:</span> <span class="sub-title">{{user.email}}</span></li>
+          <li class="list-group-item wrap-101"><span class="content"><i class="fa fa-users" aria-hidden="true"></i> User Type:</span> <span class="sub-title">{{user.type}}</span></li>
+        </ul>
+      </div>
+</div>

@@ -1,0 +1,101 @@
+.inforide {
+    box-shadow: 1px 2px 8px 0px #f1f1f1;
+    background-color: white;
+    border-radius: 8px;
+    height: 125px;
+  }
+
+  .ride img {
+      margin-top: 50%;
+      width: 80%;
+  }
+    
+  .ride {
+    background-color: rgb(4, 189, 149);
+    padding-top: 25px;
+    border-radius: 8px 0px 0px 8px;
+    text-align: center;
+    height: 125px;
+    margin-left: 15px;
+  }
+  
+  .fontsty {
+    margin-right: -15px;
+  }
+  
+  .fontsty button{
+    font-family: Poppins-Bold;
+    color: rgb(4, 189, 149);
+    font-size: 15px;
+    margin-top: 5px;
+    text-align: right;
+    margin-left: 25px;
+  }
+  
+  .fontsty h4{
+    color: #6E6E6E;
+    font-family: Poppins-Bold;
+    font-size: 25px;
+    margin-top: 3%;
+    text-align: right;
+    margin-right: 30px;
+  }
+  
+  .wrap-btn {
+    width: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    
+    justify-content: center;
+    padding-bottom: 10px;
+  }
+  
+  .container-100 {
+    width: 100%;  
+    min-height: 100vh;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    background: #9053c7;
+    background: -webkit-linear-gradient(-135deg, #c850c0, #4158d0);
+    background: -o-linear-gradient(-135deg, #c850c0, #4158d0);
+    background: -moz-linear-gradient(-135deg, #c850c0, #4158d0);
+    background: linear-gradient(-135deg, #c850c0, #4158d0);
+  }
+
+  .wrap-100 {
+    width: 1000px;
+    background: rgba(248, 245, 240, 0.80);
+    border-radius: 10px;
+    overflow: hidden;
+  
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    flex-wrap: wrap;
+    padding: 50px 130px 33px 95px;
+  }
+
+  .title {
+    font-family: Poppins-Bold;
+      font-size: 40px;
+      color: #333333;
+      text-align: center;
+    
+      width: 100%;
+      display: block;
+  }
+
+  .op:hover{
+    transform: scale(1.1);
+  }

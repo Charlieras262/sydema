@@ -1,0 +1,116 @@
+<div class="container-login100">
+  <div class="wrap-login100">
+    <p class="title">Courses <span class="text-primary">Management</span></p>
+    <form class="login100-form validate-form" #courseForm="ngForm" (ngSubmit)=addCourse(courseForm)>
+      <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="courseService.selectedCourse._id">
+      <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+        <input class="input100" id="cod_career" name="cod_career" type="text" #codCareer="ngModel" [(ngModel)]="courseService.selectedCourse.cod_career"
+          placeholder="Career Code">
+        <span class="focus-input100"></span>
+        <span class="symbol-input100">
+          <i class="fa fa-id-card" aria-hidden="true"></i>
+        </span>
+      </div>
+      <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+        <input class="input100" id="name" name="name" type="text" #name="ngModel" [(ngModel)]="courseService.selectedCourse.name"
+          placeholder="Course Name">
+        <span class="focus-input100"></span>
+        <span class="symbol-input100">
+          <i class="fa fa-server" aria-hidden="true"></i>
+        </span>
+      </div>
+      <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+        <input class="input100" id="cod_course" name="cod_course" type="text" #cod_course="ngModel" [(ngModel)]="courseService.selectedCourse.cod_course"
+          placeholder="Course Code">
+        <span class="focus-input100"></span>
+        <span class="symbol-input100">
+          <i class="fa fa-id-card-o" aria-hidden="true"></i>
+        </span>
+      </div>
+      <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+        <input class="input100" id="cycle" name="cycle" type="text" #cycle="ngModel" [(ngModel)]="courseService.selectedCourse.cycle"
+          placeholder="Cycle">
+        <span class="focus-input100"></span>
+        <span class="symbol-input100">
+          <i class="fa fa-phone prefix" aria-hidden="true"></i>
+        </span>
+      </div>
+      <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+        <input class="input100" id="section" name="section" type="text" #section="ngModel" [(ngModel)]="courseService.selectedCourse.section"
+          placeholder="Section">
+        <span class="focus-input100"></span>
+        <span class="symbol-input100">
+          <i class="fa fa-building-o" aria-hidden="true"></i>
+        </span>
+      </div>
+      <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+        <input class="input100" id="st_time" name="st_time" type="text" #st_time="ngModel" [(ngModel)]="courseService.selectedCourse.st_time"
+          placeholder="Start Time">
+        <span class="focus-input100"></span>
+        <span class="symbol-input100">
+          <i class="fa fa-building-o" aria-hidden="true"></i>
+        </span>
+      </div>
+      <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+        <input class="input100" id="end_time" name="end_time" type="text" #end_time="ngModel" [(ngModel)]="courseService.selectedCourse.end_time"
+          placeholder="End Time">
+        <span class="focus-input100"></span>
+        <span class="symbol-input100">
+          <i class="fa fa-building-o" aria-hidden="true"></i>
+        </span>
+      </div>
+      <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+        <input class="input100" id="cod_teacher" name="cod_teacher" type="text" #cod_teacher="ngModel" [(ngModel)]="courseService.selectedCourse.cod_teacher"
+          placeholder="Teacher Code">
+        <span class="focus-input100"></span>
+        <span class="symbol-input100">
+          <i class="fa fa-building-o" aria-hidden="true"></i>
+        </span>
+      </div>
+      <div class="container-login100-form-btn">
+        <button (click)="cleanForm(courseForm)" type="reset" class="login100-form-btn">
+          <i class="fa fa-times prefix" aria-hidden="true"></i>&nbsp;
+          Clear
+        </button>
+        <button class="login100-form-btn" type="submit">
+          <i class="fa fa-floppy-o prefix"></i>&nbsp;
+          Save
+        </button>
+      </div>
+    </form>
+    <div class="login100-pic js-tilt" data-tilt>
+      <img src="src/public/images/cour.png" alt="IMG">
+    </div>
+    <table class="table table-hover">
+      <thead>
+        <th scope="col" class="tb-title table-success">Code Career</th>
+        <th scope="col" class="tb-title table-success">Course Name</th>
+        <th scope="col" class="tb-title table-success">Code Course</th>
+        <th scope="col" class="tb-title table-success">Cycle</th>
+        <th scope="col" class="tb-title table-success">Section</th>
+        <th scope="col" class="tb-title table-success">Start Time</th>
+        <th scope="col" class="tb-title table-success">End Time</th>
+        <th scope="col" class="tb-title table-success">Code Teacher</th>
+        <th scope="col" class="tb-title table-success">Operations</th>
+      </thead>
+      <tbody>
+        <tr class="table-success tb-sub-title" *ngFor="let course of courseService.courses">
+          <td>{{course.cod_career}}</td>
+          <td>{{course.name}}</td>
+          <td>{{course.cod_course}}</td>
+          <td>{{course.cycle}}</td>
+          <td>{{course.section}}</td>
+          <td>{{course.st_time}}</td>
+          <td>{{course.end_time}}</td>
+          <td>{{course.cod_teacher}}</td>
+          <td ng-if="showTooltip">
+            <button type="button" class="btn btn-link" (click)="editCourse(course)" style="padding-right: 10px; padding-left: 10px;"><i class="fa fa-pencil-square-o fa-2x"
+                aria-hidden="true"></i></button>
+            <button type="button" class="btn btn-link" (click)="deleteCourse(course._id)"><i class="fa fa-trash-o fa-2x"
+                aria-hidden="true"></i></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

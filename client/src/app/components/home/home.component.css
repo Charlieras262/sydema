@@ -1,0 +1,106 @@
+@font-face {
+    font-family: Poppins-Bold;
+    src: url('/src/public/fonts/poppins/Poppins-Bold.ttf'); 
+  }
+
+  @font-face {
+    font-family: Poppins-Medium;
+    src: url('/src/public/fonts/poppins/Poppins-Medium.ttf'); 
+  }
+
+.container-login100 {
+    width: 100%;  
+    min-height: 100vh;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    background: #015aff;
+    background: -webkit-linear-gradient(-135deg, #c850c0, #4158d0);
+    background: -o-linear-gradient(-135deg, #c850c0, #4158d0);
+    background: -moz-linear-gradient(-135deg, #c850c0, #4158d0);
+    background: linear-gradient(-135deg, #c850c0, #4158d0);
+  }
+
+  .wrap-login100 {
+    width: 1200px;
+    background: rgba(248, 245, 240, 0.80);
+    border-radius: 10px;
+    overflow: hidden;
+  
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    flex-wrap: wrap;
+    padding: 50px 130px 33px 95px;
+  }
+
+  .title {
+    font-family: Poppins-Bold;
+    font-size: 60px;
+    color: #333333;
+    text-align: center;
+  
+    width: 100%;
+    display: block;
+    padding-bottom: 54px;
+  }
+
+  .sub-title {
+    font-family: Poppins-Bold;
+    font-size: 40px;
+    color: #333333;
+    text-align: left;
+  
+    width: 100%;
+    display: block;
+    padding-bottom: 30px;
+  }
+
+  .content {
+    font-family: Poppins-Bold;
+    font-size: 15px;
+    color: #333333;
+    text-align: left;
+  
+    display: block;
+  }
+
+  .sub-content button{
+    font-family: Poppins-Medium;
+    font-size: 20px;
+    text-align: left, top;
+    color: #333333;
+    display: block;
+    padding-top: 5px;
+  }
+
+  .sub-content {
+    font-family: Poppins-Medium;
+    font-size: 20px;
+    text-align: left;
+    display: block;
+    padding-top: 5px;
+  }
+
+  .sub-content i{
+    font-size: 15px;
+    text-align: left;
+    color: #84C225;
+    display: block;
+  }
+
+  .sub-content a:hover{
+    color: #84C225;
+  }
+
+  .spn{
+    color: #84C225;
+  }
+  

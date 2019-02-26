@@ -1,0 +1,82 @@
+<div class="container-login100">
+  <div class="wrap-login100">
+    <p class="title">Asignation <span class="text-primary">Management</span></p>
+    <form class="login100-form validate-form" #asignationForm="ngForm" (ngSubmit)=addAsignation(asignationForm)>
+      <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="asignationService.selectedAsignation._id">
+      <div class="wrap-input100 validate-input" data-validate="Valid Student Carné is required: Already Created">
+        <input class="input100" id="carne_stud" name="carne_stud" type="text" #carne_stud="ngModel" [(ngModel)]="asignationService.selectedAsignation.carne_stud"
+          placeholder="Student Carné">
+        <span class="focus-input100"></span>
+        <span class="symbol-input100">
+          <i class="fa fa-id-card" aria-hidden="true"></i>
+        </span>
+      </div>
+      <div class="wrap-input100 validate-input" data-validate="Valid Course Code is required: Already Created">
+        <input class="input100" id="cod_course" name="cod_course" type="text" #cod_course="ngModel" [(ngModel)]="asignationService.selectedAsignation.cod_course"
+          placeholder="Course Code">
+        <span class="focus-input100"></span>
+        <span class="symbol-input100">
+          <i class="fa fa-id-card" aria-hidden="true"></i>
+        </span>
+      </div>
+      <div class="wrap-input100 validate-input" data-validate="Valid Section is required">
+        <input class="input100" id="section" name="section" type="text" #section="ngModel" [(ngModel)]="asignationService.selectedAsignation.section"
+          placeholder="Section">
+        <span class="focus-input100"></span>
+        <span class="symbol-input100">
+          <i class="fa fa-id-card" aria-hidden="true"></i>
+        </span>
+      </div>
+      <div class="container-login100-form-btn">
+        <button (click)="cleanForm(asignationForm)" type="reset" class="login100-form-btn">
+          <i class="fa fa-times prefix" aria-hidden="true"></i>&nbsp;
+          Clear
+        </button>
+        <button class="login100-form-btn" type="submit">
+          <i class="fa fa-floppy-o prefix"></i>&nbsp;
+          Save
+        </button>
+      </div>
+      <div class="modal" id="alert">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Alert Delete Asignation</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>Are you sure you want to delete this asignation?</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" (click)="deleteAsignation()" data-dismiss="modal" class="btn btn-primary">Save changes</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+    <div class="login100-pic js-tilt" data-tilt>
+      <img src="src/public/images/asig.png" alt="IMG">
+    </div>
+    <table class="table table-hover">
+      <thead>
+        <th scope="col" class="tb-title table-success">Student ID</th>
+        <th scope="col" class="tb-title table-success">Course Code</th>
+        <th scope="col" class="tb-title table-success">Section</th>
+        <th scope="col" class="tb-title table-success">Operations</th>
+      </thead>
+      <tbody>
+        <tr class="table-success tb-sub-title" *ngFor="let asignation of asignationService.asignations">
+          <td>{{asignation.carne_stud}}</td>
+          <td>{{asignation.cod_course}}</td>
+          <td>{{asignation.section}}</td>
+          <td ng-if="showTooltip">
+            <button type="button" class="btn btn-link" (click)="showModal(asignation)"><i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

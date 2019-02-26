@@ -1,0 +1,32 @@
+<div class="container-100">
+  <div class="wrap-100">
+    <p class="title">Courses <span class="text-primary">Assigned</span></p>
+    <img style="margin-left: 25%; width: 50%;" src="src/public/images/loading1.gif" alt="IMG" *ngIf="loading">
+    <p *ngIf="!this.thereCourses()" class="content text-danger">You have no courses Assigned</p>
+    <div *ngIf="this.isLoaded()" class="content-wrapper">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-3 col-sm-4 op" *ngFor="let course of studentService.selectedCourse.course_asigned">
+            <div class="wrimagecard wrimagecard-topimage">
+              <a (click)="this.showCourseDeatil(course)" [routerLink]="['/coursesasigned/'+course._id+'/information']">
+                <div class="login100-pic">
+                  <div class="wrimagecard-topimage_header" style="background-color:#395689">
+                    <img src="src/public/images/cour.png">
+                  </div>
+                </div>
+                <div class="wrimagecard-topimage_title">
+                  <h4 style="font-size: 13px">{{course.name}}
+                    <div class="pull-right badge" id="WrGridSystem"></div>
+                  </h4>
+                  <h4 style="font-size: 13px">{{course.st_time}} - {{course.end_time}}
+                    <div class="pull-right badge" id="WrGridSystem"></div>
+                  </h4>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

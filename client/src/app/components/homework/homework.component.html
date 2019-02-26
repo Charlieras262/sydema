@@ -1,0 +1,34 @@
+<div class="container wrap-100">
+  <h1 class="text-center title">Upload <span class="text-primary">Homework</span></h1>
+  <div class="custom-file">
+    <input class="custom-file-input" type="file" name="file" id="file" (change)="onFileSelected($event)" [(ngModel)]="path"
+      value="path">
+    <label for="file" class="custom-file-label">
+      <p>Choose File</p>
+    </label>
+  </div>
+  <button *ngIf="path" type="submit" (click)="onUploadFile()" class="btn btn-primary btn-block mt-3 ">Upload</button>
+  <hr>
+  <div class="card card-body mb-3" *ngFor="let file of files">
+    <div *ngIf="showUploadedImage(file.filename, file.contentType)" class="mb-3">
+      <img src="{{fileURL}}" alt="">
+    </div>
+    <div *ngIf="!showUploadedImage(file.filename, file.contentType)" class="wrap mb-3">
+      <div class="pic-type">
+        <img src="src/public/images/{{type}}" alt="">
+      </div>
+      <p class="file-names">{{fileURL}}</p>
+    </div>
+    <a class="btn btn-primary btn-block" (click)="downloadFile(file.filename)" style="color: white;"><i class="fa fa-arrow-down"></i> Download</a>
+    <button class="btn btn-danger btn-block" (click)=" deleteUploadedFile(file._id)">Delete</button>
+  </div>
+  <p *ngIf="loading" class="content">Uploading ({{speed}}{{unit}})</p>
+  <div class="progress mb-4" *ngIf="loading">
+    <div class="progress-bar progress-bar-striped progress-bar-animated progress" role="progressbar" [ngStyle]="{'width.%': curProgress}">{{curProgress}}%</div>
+  </div>
+  <p *ngIf="!there" class="content">You've <span class="text-danger"> not </span>added files</p>
+  <div *ngIf="there" class="form-group">
+    <textarea *ngIf="!loading" class="form-control send-container" id="description" [(ngModel)]="description" rows="3" placeholder="Add the homework's description"></textarea>
+    <button *ngIf="!loading" (click)="sendHomework(file._id, description)" class="btn btn-primary btn-block">Send Homework</button>
+  </div>
+</div>
