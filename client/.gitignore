@@ -9,6 +9,8 @@
 /node_modules
 package-lock.json
 .editorconfig
+tslint.json
+tsconfig.json
 
 # IDEs and editors
 /.idea
