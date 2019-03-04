@@ -3,6 +3,7 @@
     background-color: white;
     border-radius: 8px;
     height: 125px;
+    position: relative;
   }
 
   .ride img {
@@ -12,6 +13,16 @@
 
   .op:hover{
     transform: scale(1.1);
+    cursor: pointer;
+  }
+
+  .op:active{
+    transform: scale(0.9);
+    border-color: transparent;
+  }
+
+  .op:focus{
+    outline:0px;
   }
 
   .ride {
@@ -40,10 +51,10 @@
   .fontsty h4{
     color: #6E6E6E;
     font-family: Poppins-Bold;
-    font-size: 25px;
-    margin-top: 25%;
-    text-align: right;
-    margin-right: 30px;
+    font-size: 20px;
+    position: absolute;
+    top: 40%;
+    left: 10%;
   }
   
   .wrap-btn {

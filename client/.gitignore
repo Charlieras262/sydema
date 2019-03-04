@@ -8,6 +8,7 @@
 # dependencies
 /node_modules
 package-lock.json
+.editorconfig
 
 # IDEs and editors
 /.idea
@@ -18,14 +19,12 @@ package-lock.json
 .settings/
 *.sublime-workspace
 
-
 # IDE - VSCode
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
-.editorconfig
 
 # misc
 /.sass-cache
