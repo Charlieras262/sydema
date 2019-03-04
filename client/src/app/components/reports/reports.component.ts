@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { StudentService } from 'src/app/services/students/student.service';
 import { TeacherService } from 'src/app/services/teachers/teacher.service';
-import { CareerService } from 'src/app/services/careers/career.service';
+import { InstitutionService } from 'src/app/services/institutions/institution.service';
 import { CourseService } from 'src/app/services/courses/course.service';
 import { AsignationService } from 'src/app/services/asignations/asignation.service';
 import { Student } from 'src/app/models/student';
@@ -12,14 +12,14 @@ declare var jsPDF: any;
   selector: 'app-reports',
   templateUrl: './reports.component.html',
   styleUrls: ['./reports.component.css'],
-  providers: [StudentService, TeacherService, CareerService, CourseService, AsignationService]
+  providers: [StudentService, TeacherService, InstitutionService, CourseService, AsignationService]
 })
 export class ReportsComponent implements OnInit {
 
   constructor(
     public studentService: StudentService,
     public teacherService: TeacherService,
-    public careerService: CareerService,
+    public careerService: InstitutionService,
     public courseService: CourseService,
     public asignationService: AsignationService
   ) { }

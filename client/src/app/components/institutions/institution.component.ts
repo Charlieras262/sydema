@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CareerService } from 'src/app/services/careers/career.service';
-import { Career } from 'src/app/models/career';
+import { InstitutionService } from 'src/app/services/institutions/institution.service';
+import { Institution } from 'src/app/models/institution';
 import { NgForm } from '@angular/forms';
 import { ValidateService } from 'src/app/services/validate/validate.service';
 
@@ -9,14 +9,14 @@ declare var $: any;
 var input;
 
 @Component({
-  selector: 'app-careers',
-  templateUrl: './careers.component.html',
-  styleUrls: ['./careers.component.css'],
-  providers: [CareerService]
+  selector: 'app-institution',
+  templateUrl: './institution.component.html',
+  styleUrls: ['./institution.component.css'],
+  providers: [InstitutionService]
 })
-export class CareersComponent implements OnInit {
+export class InstitutionComponent implements OnInit {
 
-  constructor(public careerService: CareerService, public validateService: ValidateService) { }
+  constructor(public careerService: InstitutionService, public validateService: ValidateService) { }
 
   ngOnInit() {
     input = $('.validate-input .input100');
@@ -36,20 +36,20 @@ export class CareersComponent implements OnInit {
       this.careerService.putCareer(form.value)
         .subscribe(res => {
           this.cleanForm(form);
-          $.toaster('Career Updated Succesfully <i class="fa fa-check-circle"></i>', 'Notice', 'success');
+          $.toaster('Institution Updated Succesfully <i class="fa fa-check-circle"></i>', 'Notice', 'success');
           this.getCareers();
         });
         this.removeValidate(input);
     } else {
       this.careerService.authCareerInfo(form.value).subscribe(res => {
-        var career = JSON.parse(JSON.stringify(res));
-        this.valComp(input[0], career.code);
-        this.valComp(input[1], career.name);
-        if (career.code.success && career.name.success) {
+        var Institution = JSON.parse(JSON.stringify(res));
+        this.valComp(input[0], Institution.code);
+        this.valComp(input[1], Institution.name);
+        if (Institution.code.success && Institution.name.success) {
           this.careerService.postCareer(form.value)
             .subscribe(res => {
               this.cleanForm(form);
-              $.toaster('Career Saved Successfully <i class="fa fa-check-circle"></i>', 'Notice', 'success');
+              $.toaster('Institution Saved Successfully <i class="fa fa-check-circle"></i>', 'Notice', 'success');
               this.getCareers();
             });
         }
@@ -60,20 +60,19 @@ export class CareersComponent implements OnInit {
   getCareers() {
     this.careerService.getCareers().
       subscribe(res => {
-        this.careerService.careers = res as Career[];
+        this.careerService.careers = res as Institution[];
         console.log(res);
       });
   }
 
-  editStudent(career: Career) {
-    this.careerService.selectedCareer = career;
-    console.log(career.just);
+  editStudent(Institution: Institution) {
+    this.careerService.selectedCareer = Institution;
   }
 
   deleteStudent(_id: string) {
     this.careerService.deleteCareer(_id)
       .subscribe(res => {
-        $.toaster('Career Deleted Succesfully <i class="fa fa-check-circle"></i>', 'Notice', 'success');
+        $.toaster('Institution Deleted Succesfully <i class="fa fa-check-circle"></i>', 'Notice', 'success');
         this.getCareers();
       });
   }
@@ -81,7 +80,7 @@ export class CareersComponent implements OnInit {
   cleanForm(form?: NgForm) {
     if (form) {
       form.reset();
-      this.careerService.selectedCareer = new Career();
+      this.careerService.selectedCareer = new Institution();
     }
   }
 

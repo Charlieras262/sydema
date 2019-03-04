@@ -1,5 +1,5 @@
 const Student = require('../models/student');
-const Career = require('../models/career');
+const Career = require('../models/institution');
 const studentCTRL = {};
 
 studentCTRL.getStudents = async (req, res) => {

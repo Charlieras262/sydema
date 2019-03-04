@@ -1,6 +1,5 @@
-export class Career{
+export class Institution{
     _id: string;
     code: string;
     name: string;
-    just: string;
 }

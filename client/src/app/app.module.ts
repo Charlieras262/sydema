@@ -16,7 +16,7 @@ import { ValidateService } from './services/validate/validate.service';
 import { AuthService } from './services/auth/auth.service';
 import { TeachersComponent } from './components/teachers/teachers.component';
 import { CoursesComponent } from './components/courses/courses.component';
-import { CareersComponent } from './components/careers/careers.component';
+import { InstitutionComponent } from './components/institutions/institution.component';
 import { AsignationsComponent } from './components/asignations/asignations.component';
 import { ReportsComponent } from './components/reports/reports.component';
 import { CoursesAsignedComponent } from './components/courses-asigned/courses-asigned.component';
@@ -38,7 +38,7 @@ const routes: Routes = [
   {path: 'students', component: StudentComponent, canActivate: [UserAdminGuard]},
   {path: 'teachers', component: TeachersComponent, canActivate: [UserAdminGuard]},
   {path: 'courses', component: CoursesComponent, canActivate: [UserAdminGuard]},
-  {path: 'careers', component: CareersComponent, canActivate: [UserAdminGuard]},
+  {path: 'careers', component: InstitutionComponent, canActivate: [UserAdminGuard]},
   {path: 'asignations', component: AsignationsComponent, canActivate: [UserAdminGuard]},
   {path: 'coursesasigned', component: CoursesAsignedComponent, canActivate: [UserStudentGuard]},
   {path: 'coursesasignedteacher', component: CoursesAsignedTeacherComponent, canActivate: [UserTeacherGuard]},
@@ -70,7 +70,7 @@ const routes: Routes = [
     StudentComponent,
     TeachersComponent,
     CoursesComponent,
-    CareersComponent,
+    InstitutionComponent,
     AsignationsComponent,
     ReportsComponent,
     CoursesAsignedComponent,
