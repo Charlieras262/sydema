@@ -25,6 +25,10 @@ _Paso 1: Git Clone_
 
 ```
 git clone git@github.com:Charlieras262/sydema.git
+
+ó
+
+git clone https://github.com/Charlieras262/sydema.git
 ```
 
 _**Paso 2:** Instalar librerias_
